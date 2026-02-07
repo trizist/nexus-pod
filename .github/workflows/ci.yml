@@ -1,0 +1,42 @@
+name: Nexus Pod CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test-and-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
+
+      - name: Run Ethos Linter
+        run: npx ethos-linter --config=ethos-rules.yaml .
+
+      - name: Build hardware docs
+        run: |
+          mkdir -p public/hardware
+          cp -r hardware/pod-lite public/hardware/
+          cp docs/hardware/assembly.md public/hardware/
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: nexus-pod-build
+          path: |
+            dist/
+            public/
