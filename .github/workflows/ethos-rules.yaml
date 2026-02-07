@@ -1,0 +1,7 @@
+version: "1.0"
+rules:
+  - id: no_remote_telemetry
+    severity: error
+    pattern: 
+      - "*.js": "fetch.*https?://(?!pod\\.local)"
+    message: "Remote telemetry detected. Use local pod API only."
