@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "name": "pod-lite",
+  "folders": {
+    "schematics": "schematics",
+    "pcb": "pcb",
+    "libs": "libs"
+  },
+  "meta": {
+    "author": "Umair Abbas Siddiquie",
+    "license": "CERN-OHL-2.0",
+    "created": "2026-02-07"
+  }
+}
