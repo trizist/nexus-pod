@@ -1,0 +1,15 @@
+{
+  "name": "@nexus-pod/cli",
+  "version": "1.0.0",
+  "description": "Nexus Pod Command Line Interface",
+  "main": "src/cli/index.js",
+  "bin": {
+    "pod-cli": "./src/cli/index.js"
+  },
+  "scripts": {
+    "test": "echo \"No tests yet\""
+  },
+  "keywords": ["nexus", "pod", "sovereign", "workspace"],
+  "author": "Umair Abbas Siddiquie",
+  "license": "Apache-2.0 WITH Commons-Clause-1.0"
+}
